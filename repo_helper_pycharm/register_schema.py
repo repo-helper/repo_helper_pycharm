@@ -80,9 +80,7 @@ def register_schema(repo_dir: PathLike) -> None:
 		entry_xml = indent(dedent(entry_xml), '\t').expandtabs(4)
 
 	if not schema_mapping_file.is_file():
-		schema_mapping_file.write_clean(
-				dedent(
-						f"""\
+		mapping_xml = f"""\
 	<?xml version="1.0" encoding="UTF-8"?>
 	<project version="4">
 		<component name="JsonSchemaMappingsProjectConfiguration">
@@ -94,8 +92,8 @@ def register_schema(repo_dir: PathLike) -> None:
 		</component>
 	</project>
 	"""
-						).expandtabs(4)
-				)
+
+		schema_mapping_file.write_clean(dedent(mapping_xml).expandtabs(4))
 
 	else:
 		schema = objectify.parse(str(schema_mapping_file))
