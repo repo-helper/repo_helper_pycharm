@@ -2,6 +2,12 @@
 <module type="PYTHON_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/.mypy_cache"/>
+      <excludeFolder url="file://$MODULE_DIR$/.pytest_cache"/>
+      <excludeFolder url="file://$MODULE_DIR$/.tox"/>
+      <excludeFolder url="file://$MODULE_DIR$/build"/>
+      <excludeFolder url="file://$MODULE_DIR$/conda"/>
+      <excludeFolder url="file://$MODULE_DIR$/dist"/>
       <excludeFolder url="file://$MODULE_DIR$/venv"/>
     </content>
     <orderEntry type="inheritedJdk"/>
@@ -10,11 +16,7 @@
   <component name="PackageRequirementsSettings">
     <option name="requirementsPath" value=""/>
   </component>
-  <component name="PyDocumentationSettings">
-    <option name="format" value="PLAIN"/>
-    <option name="myDocStringFormat" value="Plain"/>
-  </component>
   <component name="TestRunnerService">
-    <option name="PROJECT_TEST_RUNNER" value="nose"/>
+    <option name="PROJECT_TEST_RUNNER" value="pytest"/>
   </component>
 </module>

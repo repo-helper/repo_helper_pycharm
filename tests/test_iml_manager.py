@@ -62,13 +62,19 @@ class TestCommand(BaseTest):
 			assert result.stderr == f"{no_idea}\nAborted!\n"
 			assert not result.stdout
 
+	@pytest.mark.parametrize("diff", [True, False])
 	@pytest.mark.usefixtures("tmp_project")
-	def test_iml_manager(self, tmp_pathplus, file_regression: FileRegressionFixture):
+	def test_iml_manager(self, tmp_pathplus, file_regression: FileRegressionFixture, diff):
 		self.make_fake_iml(tmp_pathplus)
+
+		if diff:
+			args = ["--diff"]
+		else:
+			args = []
 
 		with in_directory(tmp_pathplus):
 			runner = CliRunner()
-			result: Result = runner.invoke(configure, catch_exceptions=False)
+			result: Result = runner.invoke(configure, catch_exceptions=False, args=args)
 			assert result.exit_code == 1
 
 		self.check_output(tmp_pathplus, file_regression, result.stdout)
@@ -83,11 +89,12 @@ class TestClass(BaseTest):
 		with pytest.raises(FileNotFoundError, match=no_idea):
 			ImlManager(tmp_pathplus)
 
+	@pytest.mark.parametrize("diff", [True, False])
 	@pytest.mark.usefixtures("tmp_project")
-	def test_iml_manager(self, tmp_pathplus, file_regression: FileRegressionFixture, capsys):
+	def test_iml_manager(self, tmp_pathplus, file_regression: FileRegressionFixture, capsys, diff):
 		self.make_fake_iml(tmp_pathplus)
 
-		assert ImlManager(tmp_pathplus).run() == 1
+		assert ImlManager(tmp_pathplus).run(diff) == 1
 
 		self.check_output(tmp_pathplus, file_regression, capsys.readouterr().out)
 

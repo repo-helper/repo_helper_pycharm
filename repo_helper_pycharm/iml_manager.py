@@ -79,11 +79,19 @@ class ImlManager:
 		:param show_diff: Whether to show a diff if changes are made.
 		"""
 
+		self.update_excludes()
+		self.update_runner()
+		self.remove_docstring_format()
+		return self.write_out(show_diff)
+
+	def write_out(self, show_diff: bool = False) -> int:
+		"""
+
+		:param show_diff: Whether to show a diff if changes are made.
+		"""
+
 		modified_xml = StringList(['<?xml version="1.0" encoding="UTF-8"?>'])
-		modified_xml.append(lxml.etree.tostring(
-				self.root,
-				pretty_print=True,
-				).decode("UTF-8"), )
+		modified_xml.append(lxml.etree.tostring(self.root, pretty_print=True).decode("UTF-8"))
 		modified_xml.blankline(ensure_single=True)
 
 		current_content = self.module_file.read_lines()
