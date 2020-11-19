@@ -1,13 +1,12 @@
 # stdlib
 import os
 import re
-
-# 3rd party
 from abc import abstractmethod
 
+# 3rd party
 import pytest
 from click.testing import CliRunner, Result
-from domdf_python_tools.paths import in_directory, PathPlus
+from domdf_python_tools.paths import PathPlus, in_directory
 from domdf_python_tools.testing import check_file_regression, not_pypy
 from pytest_regressions.file_regression import FileRegressionFixture
 
@@ -21,6 +20,7 @@ class BaseTest:
 	# TODO: check when file exists
 
 	if os.sep == '/':
+
 		def check_output(self, tmp_pathplus, file_regression: FileRegressionFixture, stdout: str):
 			assert re.match(
 					r"Wrote schema to .*/repo_helper/repo_helper_schema\.json",
@@ -34,6 +34,7 @@ class BaseTest:
 					)
 			check_file_regression(file_content, file_regression, extension=".xml")
 	else:
+
 		def check_output(self, tmp_pathplus, file_regression: FileRegressionFixture, stdout: str):
 			assert re.match(
 					r"Wrote schema to .*\\repo_helper\\repo_helper_schema\.json",
@@ -65,7 +66,9 @@ class BaseTest:
 class TestCommand(BaseTest):
 
 	@pytest.mark.usefixtures("tmp_project")
-	def test_pycharm_schema_not_project(self, no_idea, tmp_pathplus, file_regression: FileRegressionFixture, tmp_project):
+	def test_pycharm_schema_not_project(
+			self, no_idea, tmp_pathplus, file_regression: FileRegressionFixture, tmp_project
+			):
 		with in_directory(tmp_pathplus):
 			runner = CliRunner(mix_stderr=False)
 			result: Result = runner.invoke(schema, catch_exceptions=False)
