@@ -2,26 +2,26 @@
 Usage
 =======
 
-repo-helper github
+repo-helper pycharm
 --------------------
 
-.. click:: repo_helper_github:github
-	:prog: repo-helper github
+.. click:: repo_helper_pycharm:pycharm
+	:prog: repo-helper pycharm
 	:nested: none
 
 Commands
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-new
-*****
+schema
+********
 
-.. click:: repo_helper_github:new
-	:prog: repo-helper github new
+.. click:: repo_helper_pycharm:schema
+	:prog: repo-helper pycharm schema
 	:nested: none
 
-update
-*******
+configure
+***********
 
-.. click:: repo_helper_github:update
-	:prog: repo-helper github update
+.. click:: repo_helper_pycharm:configure
+	:prog: repo-helper pycharm configure
 	:nested: none
