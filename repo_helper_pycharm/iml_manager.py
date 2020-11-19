@@ -28,10 +28,9 @@ Class to update PyCharm's ``*.iml`` configuration files.
 
 # 3rd party
 import click
-import lxml
-import lxml.etree
+import lxml  # type: ignore
+import lxml.etree  # type: ignore
 from consolekit.utils import coloured_diff
-from domdf_python_tools.paths import PathPlus
 from domdf_python_tools.stringlist import StringList
 from domdf_python_tools.typing import PathLike
 from lxml import objectify
@@ -94,7 +93,8 @@ class ImlManager:
 		modified_xml.append(lxml.etree.tostring(self.root, pretty_print=True).decode("UTF-8"))
 		modified_xml.blankline(ensure_single=True)
 
-		current_content = self.module_file.read_lines()
+		# TODO: waiting on mypy updating typeshed
+		current_content = self.module_file.read_lines()  # type: ignore
 
 		changed = current_content != list(modified_xml)
 
@@ -114,7 +114,8 @@ class ImlManager:
 								)
 						)
 
-			self.module_file.write_lines(modified_xml)
+			# TODO: waiting on mypy updating typeshed
+			self.module_file.write_lines(modified_xml)  # type: ignore
 
 			return 1
 
