@@ -1,0 +1,118 @@
+####################
+repo_helper_pycharm
+####################
+
+.. start short_desc
+
+**repo_helper extension to manage PyCharm's configuration.**
+
+.. end short_desc
+
+
+.. start shields
+
+.. list-table::
+	:stub-columns: 1
+	:widths: 10 90
+
+	* - Docs
+	  - |docs| |docs_check|
+	* - Tests
+	  - |travis| |actions_windows| |actions_macos| |coveralls| |codefactor| |pre_commit_ci|
+	* - PyPI
+	  - |pypi-version| |supported-versions| |supported-implementations| |wheel|
+	* - Activity
+	  - |commits-latest| |commits-since| |maintained|
+	* - Other
+	  - |license| |language| |requires| |pre_commit|
+
+.. |docs| image:: https://img.shields.io/readthedocs/repo_helper_pycharm/latest?logo=read-the-docs
+	:target: https://repo_helper_pycharm.readthedocs.io/en/latest/?badge=latest
+	:alt: Documentation Build Status
+
+.. |docs_check| image:: https://github.com/domdfcoding/repo_helper_pycharm/workflows/Docs%20Check/badge.svg
+	:target: https://github.com/domdfcoding/repo_helper_pycharm/actions?query=workflow%3A%22Docs+Check%22
+	:alt: Docs Check Status
+
+.. |travis| image:: https://img.shields.io/travis/com/domdfcoding/repo_helper_pycharm/master?logo=travis
+	:target: https://travis-ci.com/domdfcoding/repo_helper_pycharm
+	:alt: Travis Build Status
+
+.. |actions_windows| image:: https://github.com/domdfcoding/repo_helper_pycharm/workflows/Windows%20Tests/badge.svg
+	:target: https://github.com/domdfcoding/repo_helper_pycharm/actions?query=workflow%3A%22Windows+Tests%22
+	:alt: Windows Tests Status
+
+.. |actions_macos| image:: https://github.com/domdfcoding/repo_helper_pycharm/workflows/macOS%20Tests/badge.svg
+	:target: https://github.com/domdfcoding/repo_helper_pycharm/actions?query=workflow%3A%22macOS+Tests%22
+	:alt: macOS Tests Status
+
+.. |requires| image:: https://requires.io/github/domdfcoding/repo_helper_pycharm/requirements.svg?branch=master
+	:target: https://requires.io/github/domdfcoding/repo_helper_pycharm/requirements/?branch=master
+	:alt: Requirements Status
+
+.. |coveralls| image:: https://img.shields.io/coveralls/github/domdfcoding/repo_helper_pycharm/master?logo=coveralls
+	:target: https://coveralls.io/github/domdfcoding/repo_helper_pycharm?branch=master
+	:alt: Coverage
+
+.. |codefactor| image:: https://img.shields.io/codefactor/grade/github/domdfcoding/repo_helper_pycharm?logo=codefactor
+	:target: https://www.codefactor.io/repository/github/domdfcoding/repo_helper_pycharm
+	:alt: CodeFactor Grade
+
+.. |pypi-version| image:: https://img.shields.io/pypi/v/repo_helper_pycharm
+	:target: https://pypi.org/project/repo_helper_pycharm/
+	:alt: PyPI - Package Version
+
+.. |supported-versions| image:: https://img.shields.io/pypi/pyversions/repo_helper_pycharm?logo=python&logoColor=white
+	:target: https://pypi.org/project/repo_helper_pycharm/
+	:alt: PyPI - Supported Python Versions
+
+.. |supported-implementations| image:: https://img.shields.io/pypi/implementation/repo_helper_pycharm
+	:target: https://pypi.org/project/repo_helper_pycharm/
+	:alt: PyPI - Supported Implementations
+
+.. |wheel| image:: https://img.shields.io/pypi/wheel/repo_helper_pycharm
+	:target: https://pypi.org/project/repo_helper_pycharm/
+	:alt: PyPI - Wheel
+
+.. |license| image:: https://img.shields.io/github/license/domdfcoding/repo_helper_pycharm
+	:target: https://github.com/domdfcoding/repo_helper_pycharm/blob/master/LICENSE
+	:alt: License
+
+.. |language| image:: https://img.shields.io/github/languages/top/domdfcoding/repo_helper_pycharm
+	:alt: GitHub top language
+
+.. |commits-since| image:: https://img.shields.io/github/commits-since/domdfcoding/repo_helper_pycharm/v0.0.0
+	:target: https://github.com/domdfcoding/repo_helper_pycharm/pulse
+	:alt: GitHub commits since tagged version
+
+.. |commits-latest| image:: https://img.shields.io/github/last-commit/domdfcoding/repo_helper_pycharm
+	:target: https://github.com/domdfcoding/repo_helper_pycharm/commit/master
+	:alt: GitHub last commit
+
+.. |maintained| image:: https://img.shields.io/maintenance/yes/2020
+	:alt: Maintenance
+
+.. |pre_commit| image:: https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white
+	:target: https://github.com/pre-commit/pre-commit
+	:alt: pre-commit
+
+.. |pre_commit_ci| image:: https://results.pre-commit.ci/badge/github/domdfcoding/repo_helper_pycharm/master.svg
+	:target: https://results.pre-commit.ci/latest/github/domdfcoding/repo_helper_pycharm/master
+	:alt: pre-commit.ci status
+
+.. end shields
+
+Installation
+--------------
+
+.. start installation
+
+``repo_helper_pycharm`` can be installed from PyPI.
+
+To install with ``pip``:
+
+.. code-block:: bash
+
+	$ python -m pip install repo_helper_pycharm
+
+.. end installation
