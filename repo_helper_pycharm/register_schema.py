@@ -27,16 +27,16 @@ Register the schema mapping for ``repo_helper.yml`` with PyCharm.
 #
 
 # stdlib
-from textwrap import indent
+from textwrap import dedent, indent
 
 # 3rd party
 import repo_helper
 from domdf_python_tools.compat import importlib_resources
-from domdf_python_tools.paths import PathPlus
 from domdf_python_tools.typing import PathLike
 from lxml import etree, objectify
 from repo_helper.configuration import dump_schema
 from repo_helper.core import RepoHelper
+from domdf_python_tools.words import TAB
 
 __all__ = ["register_schema"]
 
@@ -77,20 +77,22 @@ def register_schema(repo_dir: PathLike) -> None:
 		</entry>
 		"""
 
+		entry_xml = indent(dedent(entry_xml), '\t').expandtabs(4)
+
 	if not schema_mapping_file.is_file():
-		schema_mapping_file.write_clean(
+		schema_mapping_file.write_clean(dedent(
 				f"""\
 	<?xml version="1.0" encoding="UTF-8"?>
 	<project version="4">
 		<component name="JsonSchemaMappingsProjectConfiguration">
 			<state>
 				<map>
-	{indent(entry_xml, '			')}
+	{indent(entry_xml, TAB*4)[1:-1]}
 				</map>
 			</state>
 		</component>
 	</project>
-	"""
+	""").expandtabs(4)
 				)
 
 	else:
