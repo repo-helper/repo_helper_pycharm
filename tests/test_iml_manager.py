@@ -1,7 +1,10 @@
 # 3rd party
+from typing import Union
+
 import pytest
 from click.testing import CliRunner, Result
 from domdf_python_tools.paths import PathPlus, in_directory
+from domdf_python_tools.stringlist import StringList
 from domdf_python_tools.testing import check_file_output, check_file_regression
 from pytest_regressions.file_regression import FileRegressionFixture
 
@@ -39,8 +42,11 @@ class BaseTest:
 			self,
 			tmp_pathplus: PathPlus,
 			file_regression: FileRegressionFixture,
-			stdout: str,
+			stdout: Union[str, StringList],
 			):
+
+		stdout = StringList(stdout)
+		stdout.blankline(ensure_single=True)
 
 		check_file_regression(stdout, file_regression, extension=".patch")
 		check_file_output(tmp_pathplus / ".idea" / "repo_helper_demo.iml", file_regression, extension=".xml")
