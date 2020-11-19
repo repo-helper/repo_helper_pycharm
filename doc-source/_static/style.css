@@ -4,3 +4,7 @@ div.highlight {
     -moz-tab-size: 4; /* Firefox */
     tab-size: 4;
 }
+
+.sidebar-brand-text {
+    font-size: 1.4rem;
+}
