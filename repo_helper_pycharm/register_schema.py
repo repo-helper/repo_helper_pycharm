@@ -33,10 +33,10 @@ from textwrap import dedent, indent
 import repo_helper
 from domdf_python_tools.compat import importlib_resources
 from domdf_python_tools.typing import PathLike
+from domdf_python_tools.words import TAB
 from lxml import etree, objectify
 from repo_helper.configuration import dump_schema
 from repo_helper.core import RepoHelper
-from domdf_python_tools.words import TAB
 
 __all__ = ["register_schema"]
 
@@ -80,8 +80,9 @@ def register_schema(repo_dir: PathLike) -> None:
 		entry_xml = indent(dedent(entry_xml), '\t').expandtabs(4)
 
 	if not schema_mapping_file.is_file():
-		schema_mapping_file.write_clean(dedent(
-				f"""\
+		schema_mapping_file.write_clean(
+				dedent(
+						f"""\
 	<?xml version="1.0" encoding="UTF-8"?>
 	<project version="4">
 		<component name="JsonSchemaMappingsProjectConfiguration">
@@ -92,7 +93,8 @@ def register_schema(repo_dir: PathLike) -> None:
 			</state>
 		</component>
 	</project>
-	""").expandtabs(4)
+	"""
+						).expandtabs(4)
 				)
 
 	else:

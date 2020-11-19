@@ -1,6 +1,7 @@
-# 3rd party
+# stdlib
 from typing import Union
 
+# 3rd party
 import pytest
 from click.testing import CliRunner, Result
 from domdf_python_tools.paths import PathPlus, in_directory
