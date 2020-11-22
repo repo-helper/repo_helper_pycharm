@@ -33,17 +33,17 @@ repo_helper_pycharm
 	:workflow: Docs Check
 	:alt: Docs Check Status
 
-.. |travis| travis-shield::
-	:travis-site: com
-	:alt: Travis Build Status
+.. |travis| actions-shield::
+	:workflow: Linux Tests
+	:alt: Linux Test Status
 
 .. |actions_windows| actions-shield::
 	:workflow: Windows Tests
-	:alt: Windows Tests Status
+	:alt: Windows Test Status
 
 .. |actions_macos| actions-shield::
 	:workflow: macOS Tests
-	:alt: macOS Tests Status
+	:alt: macOS Test Status
 
 .. |requires| requires-io-shield::
 	:alt: Requirements Status
@@ -131,6 +131,6 @@ Installation
 
 View the :ref:`Function Index <genindex>` or browse the `Source Code <_modules/index.html>`__.
 
-`Browse the GitHub Repository <https://github.com/domdfcoding/repo_helper_pycharm>`__
+`Browse the GitHub Repository <https://github.com/repo-helper/repo_helper_pycharm>`__
 
 .. end links

@@ -4,7 +4,7 @@ modname: 'repo_helper_pycharm'
 copyright_years: '2020'
 author: 'Dominic Davis-Foster'
 email: 'dominic@davis-foster.co.uk'
-username: 'domdfcoding'
+username: 'repo-helper'
 version: '0.1.0'
 license: 'MIT'
 short_desc: "repo_helper extension to manage PyCharm's configuration."
@@ -36,5 +36,3 @@ sphinx_html_theme: furo
 standalone_contrib_guide: true
 
 preserve_custom_theme: true
-
-travis_pypi_secure: "OFMqIyw/buRYpJok3hWOXzsq73bmM0ZPJoVXefOtk+Pl9MOWcGG7fgG1eihWUpRONvn1foUMVqGQ3YW4amc5jspmyx03uSeUWl2YDPTiB90Iq85iBJvCQxwhNWO41cZ8wzHKaVRgmuIEpml/V+CeZngpvQKRsaeVCrtdXuYreId39gBIuAQJQDFfAXgZxb8TRqrpcahBcA6NFMuVXMCufdJn1J6U3S6A6kE/fJHJ4aCRGe2VL4NB3235XakPpRqrNwY0DH352aVP3u7c8vFnkC7FZvtCUNIiY1e4WduZPHqA7D+c1/V1O9RHvPiBvDWn3umgdatDE18+z1koQfvGz/BfORzvMFI7tG4aHxO0NEWMVe1IKFHkDjaxW+W6vAj3aCjOzMQu5wI2APUnOlpdkAwDX3QZs8LXCz0ylFnbtewIKNugBpE/+jhmo6AVCkguovM6jv5/BYMnxe8EFkCiC5Ya480XO6BRIyt7GW2olXziLYQHsmalPjl41u7UsNr9RMHtvRYRXHxat7ZrLkPH5SC3d6SRkoI3O2uaJKa6g28h7f3U4TDq4le3cMzii0x9Sxh1l88Qi9wpfCPwMGkQ+fSq0jGdTnn4Dfk7ygKbewUAay/u0ZX9POaGXU36gQRw1jTt5fFxyfk1EcMoXf6IKIzDbPMQKDfiSRLaQXSljCM="

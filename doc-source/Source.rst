@@ -3,13 +3,13 @@ Downloading source code
 =========================
 
 The ``repo_helper_pycharm`` source code is available on GitHub,
-and can be accessed from the following URL: https://github.com/domdfcoding/repo_helper_pycharm
+and can be accessed from the following URL: https://github.com/repo-helper/repo_helper_pycharm
 
 If you have ``git`` installed, you can clone the repository with the following command:
 
 .. code-block:: bash
 
-    $ git clone https://github.com/domdfcoding/repo_helper_pycharm"
+    $ git clone https://github.com/repo-helper/repo_helper_pycharm"
     > Cloning into 'repo_helper_pycharm'...
     > remote: Enumerating objects: 47, done.
     > remote: Counting objects: 100% (47/47), done.

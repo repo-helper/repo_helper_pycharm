@@ -30,21 +30,21 @@ repo_helper_pycharm
 	:target: https://repo_helper_pycharm.readthedocs.io/en/latest/?badge=latest
 	:alt: Documentation Build Status
 
-.. |docs_check| image:: https://github.com/domdfcoding/repo_helper_pycharm/workflows/Docs%20Check/badge.svg
-	:target: https://github.com/domdfcoding/repo_helper_pycharm/actions?query=workflow%3A%22Docs+Check%22
+.. |docs_check| image:: https://github.com/repo-helper/repo_helper_pycharm/workflows/Docs%20Check/badge.svg
+	:target: https://github.com/repo-helper/repo_helper_pycharm/actions?query=workflow%3A%22Docs+Check%22
 	:alt: Docs Check Status
 
-.. |travis| image:: https://img.shields.io/travis/com/domdfcoding/repo_helper_pycharm/master?logo=travis
-	:target: https://travis-ci.com/domdfcoding/repo_helper_pycharm
-	:alt: Travis Build Status
+.. |travis| image:: https://github.com/repo-helper/repo_helper_pycharm/workflows/Linux%20Tests/badge.svg
+	:target: https://github.com/repo-helper/repo_helper_pycharm/actions?query=workflow%3A%22Linux+Tests%22
+	:alt: Linux Test Status
 
-.. |actions_windows| image:: https://github.com/domdfcoding/repo_helper_pycharm/workflows/Windows%20Tests/badge.svg
-	:target: https://github.com/domdfcoding/repo_helper_pycharm/actions?query=workflow%3A%22Windows+Tests%22
-	:alt: Windows Tests Status
+.. |actions_windows| image:: https://github.com/repo-helper/repo_helper_pycharm/workflows/Windows%20Tests/badge.svg
+	:target: https://github.com/repo-helper/repo_helper_pycharm/actions?query=workflow%3A%22Windows+Tests%22
+	:alt: Windows Test Status
 
-.. |actions_macos| image:: https://github.com/domdfcoding/repo_helper_pycharm/workflows/macOS%20Tests/badge.svg
-	:target: https://github.com/domdfcoding/repo_helper_pycharm/actions?query=workflow%3A%22macOS+Tests%22
-	:alt: macOS Tests Status
+.. |actions_macos| image:: https://github.com/repo-helper/repo_helper_pycharm/workflows/macOS%20Tests/badge.svg
+	:target: https://github.com/repo-helper/repo_helper_pycharm/actions?query=workflow%3A%22macOS+Tests%22
+	:alt: macOS Test Status
 
 .. |requires| image:: https://requires.io/github/domdfcoding/repo_helper_pycharm/requirements.svg?branch=master
 	:target: https://requires.io/github/domdfcoding/repo_helper_pycharm/requirements/?branch=master
@@ -74,19 +74,19 @@ repo_helper_pycharm
 	:target: https://pypi.org/project/repo_helper_pycharm/
 	:alt: PyPI - Wheel
 
-.. |license| image:: https://img.shields.io/github/license/domdfcoding/repo_helper_pycharm
-	:target: https://github.com/domdfcoding/repo_helper_pycharm/blob/master/LICENSE
+.. |license| image:: https://img.shields.io/github/license/repo-helper/repo_helper_pycharm
+	:target: https://github.com/repo-helper/repo_helper_pycharm/blob/master/LICENSE
 	:alt: License
 
-.. |language| image:: https://img.shields.io/github/languages/top/domdfcoding/repo_helper_pycharm
+.. |language| image:: https://img.shields.io/github/languages/top/repo-helper/repo_helper_pycharm
 	:alt: GitHub top language
 
-.. |commits-since| image:: https://img.shields.io/github/commits-since/domdfcoding/repo_helper_pycharm/v0.1.0
-	:target: https://github.com/domdfcoding/repo_helper_pycharm/pulse
+.. |commits-since| image:: https://img.shields.io/github/commits-since/repo-helper/repo_helper_pycharm/v0.1.0
+	:target: https://github.com/repo-helper/repo_helper_pycharm/pulse
 	:alt: GitHub commits since tagged version
 
-.. |commits-latest| image:: https://img.shields.io/github/last-commit/domdfcoding/repo_helper_pycharm
-	:target: https://github.com/domdfcoding/repo_helper_pycharm/commit/master
+.. |commits-latest| image:: https://img.shields.io/github/last-commit/repo-helper/repo_helper_pycharm
+	:target: https://github.com/repo-helper/repo_helper_pycharm/commit/master
 	:alt: GitHub last commit
 
 .. |maintained| image:: https://img.shields.io/maintenance/yes/2020
