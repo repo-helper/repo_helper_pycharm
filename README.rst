@@ -46,16 +46,16 @@ repo_helper_pycharm
 	:target: https://github.com/repo-helper/repo_helper_pycharm/actions?query=workflow%3A%22macOS+Tests%22
 	:alt: macOS Test Status
 
-.. |requires| image:: https://requires.io/github/domdfcoding/repo_helper_pycharm/requirements.svg?branch=master
-	:target: https://requires.io/github/domdfcoding/repo_helper_pycharm/requirements/?branch=master
+.. |requires| image:: https://requires.io/github/repo-helper/repo_helper_pycharm/requirements.svg?branch=master
+	:target: https://requires.io/github/repo-helper/repo_helper_pycharm/requirements/?branch=master
 	:alt: Requirements Status
 
-.. |coveralls| image:: https://img.shields.io/coveralls/github/domdfcoding/repo_helper_pycharm/master?logo=coveralls
-	:target: https://coveralls.io/github/domdfcoding/repo_helper_pycharm?branch=master
+.. |coveralls| image:: https://img.shields.io/coveralls/github/repo-helper/repo_helper_pycharm/master?logo=coveralls
+	:target: https://coveralls.io/github/repo-helper/repo_helper_pycharm?branch=master
 	:alt: Coverage
 
-.. |codefactor| image:: https://img.shields.io/codefactor/grade/github/domdfcoding/repo_helper_pycharm?logo=codefactor
-	:target: https://www.codefactor.io/repository/github/domdfcoding/repo_helper_pycharm
+.. |codefactor| image:: https://img.shields.io/codefactor/grade/github/repo-helper/repo_helper_pycharm?logo=codefactor
+	:target: https://www.codefactor.io/repository/github/repo-helper/repo_helper_pycharm
 	:alt: CodeFactor Grade
 
 .. |pypi-version| image:: https://img.shields.io/pypi/v/repo_helper_pycharm
@@ -96,8 +96,8 @@ repo_helper_pycharm
 	:target: https://github.com/pre-commit/pre-commit
 	:alt: pre-commit
 
-.. |pre_commit_ci| image:: https://results.pre-commit.ci/badge/github/domdfcoding/repo_helper_pycharm/master.svg
-	:target: https://results.pre-commit.ci/latest/github/domdfcoding/repo_helper_pycharm/master
+.. |pre_commit_ci| image:: https://results.pre-commit.ci/badge/github/repo-helper/repo_helper_pycharm/master.svg
+	:target: https://results.pre-commit.ci/latest/github/repo-helper/repo_helper_pycharm/master
 	:alt: pre-commit.ci status
 
 .. end shields

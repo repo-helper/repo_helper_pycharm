@@ -5,6 +5,7 @@ copyright_years: '2020'
 author: 'Dominic Davis-Foster'
 email: 'dominic@davis-foster.co.uk'
 username: 'repo-helper'
+assignee: 'domdfcoding'
 version: '0.1.0'
 license: 'MIT'
 short_desc: "repo_helper extension to manage PyCharm's configuration."
