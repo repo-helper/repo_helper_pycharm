@@ -40,7 +40,7 @@ def test_get_config_dir(monkeypatch, tmp_pathplus):
 
 	with pytest.raises(
 			FileNotFoundError,
-			match=f"^{re.escape(re_windowspath(str(tmp_pathplus / 'JetBrains' / 'PyCharm[0-9]{4}.[0-9]')))}$",
+			match=f"^{re.escape(str(tmp_pathplus / 'JetBrains' / 'PyCharm[0-9]{4}.[0-9]'))}$",
 			):
 		get_config_dir()
 
