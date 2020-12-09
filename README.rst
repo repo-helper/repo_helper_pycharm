@@ -81,7 +81,7 @@ repo_helper_pycharm
 .. |language| image:: https://img.shields.io/github/languages/top/repo-helper/repo_helper_pycharm
 	:alt: GitHub top language
 
-.. |commits-since| image:: https://img.shields.io/github/commits-since/repo-helper/repo_helper_pycharm/v0.1.0
+.. |commits-since| image:: https://img.shields.io/github/commits-since/repo-helper/repo_helper_pycharm/v0.2.0
 	:target: https://github.com/repo-helper/repo_helper_pycharm/pulse
 	:alt: GitHub commits since tagged version
 
