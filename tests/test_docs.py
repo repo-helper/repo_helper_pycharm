@@ -33,14 +33,14 @@ def mocked_config(monkeypatch):
 def test_get_config_dir(monkeypatch, tmp_pathplus):
 	monkeypatch.setattr(appdirs, "user_config_dir", lambda *args: str(tmp_pathplus / "JetBrains"))
 
-	with pytest.raises(FileNotFoundError, match=f"^{tmp_pathplus / 'JetBrains'}$"):
+	with pytest.raises(FileNotFoundError, match=re_windowspath(f"^{tmp_pathplus / 'JetBrains'}$")):
 		get_config_dir()
 
 	(tmp_pathplus / "JetBrains").mkdir()
 
 	with pytest.raises(
 			FileNotFoundError,
-			match=f"^{re.escape(str(tmp_pathplus / 'JetBrains' / 'PyCharm[0-9]{4}.[0-9]'))}$",
+			match=re_windowspath(f"^{re.escape(str(tmp_pathplus / 'JetBrains' / 'PyCharm[0-9]{4}.[0-9]'))}$"),
 			):
 		get_config_dir()
 
