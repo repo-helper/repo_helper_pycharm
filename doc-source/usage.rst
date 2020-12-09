@@ -25,3 +25,12 @@ configure
 .. click:: repo_helper_pycharm:configure
 	:prog: repo-helper pycharm configure
 	:nested: none
+
+docs
+***********
+
+.. click:: repo_helper_pycharm:docs
+	:prog: repo-helper pycharm docs
+	:nested: none
+
+.. versionadded:: 0.2.0

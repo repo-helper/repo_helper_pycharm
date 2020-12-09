@@ -27,20 +27,20 @@ repo_helper extension to manage PyCharm's configuration.
 #
 
 # stdlib
-from functools import partial
+from functools import partial, reduce
 
 # 3rd party
 import click
 from consolekit import CONTEXT_SETTINGS
 from repo_helper.cli import cli_group
 
-__all__ = ["configure", "pycharm", "schema"]
-
 __author__: str = "Dominic Davis-Foster"
 __copyright__: str = "2020 Dominic Davis-Foster"
 __license__: str = "MIT License"
 __version__: str = "0.1.0"
 __email__: str = "dominic@davis-foster.co.uk"
+
+__all__ = ["configure", "pycharm", "schema", "docs"]
 
 
 @cli_group()
@@ -95,3 +95,40 @@ def configure(diff: bool = False) -> None:
 		raise abort(str(e))
 
 	sys.exit(iml_manager.run(diff))
+
+
+@pycharm_command()
+def docs() -> None:
+	"""
+	Open the documentation using PyCharm's built-in web server.
+	"""
+
+	# stdlib
+	import operator
+
+	# 3rd party
+	from apeye import URL
+	from consolekit.utils import abort
+	from domdf_python_tools.paths import PathPlus
+	from repo_helper.core import RepoHelper
+
+	# this package
+	from repo_helper_pycharm.docs import get_docs_port, open_in_browser
+
+	rh = RepoHelper(PathPlus.cwd())
+
+	if not rh.templates.globals["enable_docs"]:
+		raise abort("The current project has no documentation!")
+	else:
+		url = reduce(
+				operator.truediv,
+				[
+						URL(f"http://localhost:{get_docs_port()}"),
+						rh.target_repo.name,
+						rh.templates.globals["docs_dir"],
+						"build",
+						"html",
+						]
+				)
+
+		open_in_browser(url)
