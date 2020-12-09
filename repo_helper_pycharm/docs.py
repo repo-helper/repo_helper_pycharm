@@ -62,7 +62,7 @@ def get_config_dir() -> PathPlus:
 	try:
 		return config_dir / natmax([p.name for p in config_dir.glob("PyCharm*")])
 	except (ValueError, IndexError):
-		raise FileNotFoundError(config_dir / r"PyCharm[0-9]{4}.[0-9]") from None
+		raise FileNotFoundError(config_dir / "PyCharm[0-9]{4}.[0-9]") from None
 
 
 def open_in_browser(url: str) -> None:
@@ -76,8 +76,11 @@ def open_in_browser(url: str) -> None:
 
 	config_dir = get_config_dir()
 	browser_config_file = config_dir / "options" / "web-browsers.xml"
-	browser_config = objectify.parse(str(browser_config_file))
 
+	if not browser_config_file.is_file():
+		raise FileNotFoundError(browser_config_file)
+
+	browser_config = objectify.parse(str(browser_config_file))
 	root = browser_config.getroot()
 
 	assert root.component.attrib["name"] == "WebBrowsersConfiguration"
@@ -114,6 +117,10 @@ def get_docs_port() -> int:
 
 	config_dir = get_config_dir()
 	other_config_file = config_dir / "options" / "other.xml"
+
+	if not other_config_file.is_file():
+		raise FileNotFoundError(other_config_file)
+
 	other_config = objectify.parse(str(other_config_file))
 
 	root = other_config.getroot()
