@@ -27,7 +27,7 @@ repo_helper_pycharm
 	  - |license| |language| |requires| |pre_commit|
 
 .. |docs| image:: https://img.shields.io/readthedocs/repo_helper_pycharm/latest?logo=read-the-docs
-	:target: https://repo_helper_pycharm.readthedocs.io/en/latest/?badge=latest
+	:target: https://repo_helper_pycharm.readthedocs.io/en/latest
 	:alt: Documentation Build Status
 
 .. |docs_check| image:: https://github.com/repo-helper/repo_helper_pycharm/workflows/Docs%20Check/badge.svg

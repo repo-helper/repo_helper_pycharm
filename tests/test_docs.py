@@ -1,10 +1,13 @@
+# stdlib
 import re
 import tempfile
 
-import pytest
+# 3rd party
 import appdirs
+import pytest
 from domdf_python_tools.paths import PathPlus
 
+# this package
 from repo_helper_pycharm.docs import get_config_dir, get_docs_port, open_in_browser
 
 
