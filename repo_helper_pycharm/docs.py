@@ -31,12 +31,13 @@ Parse PyCharm configuration and open a project's documentation in the default we
 # stdlib
 import os
 import webbrowser
+from typing import Optional
 
 # 3rd party
-import appdirs
+import appdirs  # type: ignore
 from domdf_python_tools.iterative import natmax
 from domdf_python_tools.paths import PathPlus
-from lxml import objectify
+from lxml import objectify  # type: ignore
 
 __all__ = [
 		"get_config_dir",
@@ -92,7 +93,7 @@ def open_in_browser(url: str) -> None:
 		browser_name = browsers[0].attrib["name"].lower()
 		if browser_name == "firefox":
 			try:
-				profile = str(browsers[0].settings.profile)
+				profile: Optional[str] = str(browsers[0].settings.profile)
 			except AttributeError:
 				profile = None
 

@@ -3,12 +3,16 @@ import re
 import tempfile
 
 # 3rd party
-import appdirs
+import appdirs  # type: ignore
 import pytest
 from domdf_python_tools.paths import PathPlus
 
 # this package
 from repo_helper_pycharm.docs import get_config_dir, get_docs_port, open_in_browser
+
+
+def re_windowspath(string: str) -> str:
+	return string.replace('\\', "\\\\")
 
 
 @pytest.fixture()
@@ -49,19 +53,14 @@ def test_get_docs_port_missing_config(monkeypatch, tmp_pathplus):
 	monkeypatch.setattr(appdirs, "user_config_dir", lambda *args: str(tmp_pathplus / "JetBrains"))
 
 	(tmp_pathplus / "JetBrains" / "PyCharm2020.2").mkdir(parents=True)
+	options_dir = tmp_pathplus / "JetBrains" / "PyCharm2020.2" / "options"
 
-	with pytest.raises(
-			FileNotFoundError,
-			match=f"^{tmp_pathplus / 'JetBrains' / 'PyCharm2020.2' / 'options' / 'other.xml'}$",
-			):
+	with pytest.raises(FileNotFoundError, match=re_windowspath(f"^{options_dir / 'other.xml'}$")):
 		get_docs_port()
 
-	(tmp_pathplus / "JetBrains" / "PyCharm2020.2" / "options").mkdir()
+	options_dir.mkdir()
 
-	with pytest.raises(
-			FileNotFoundError,
-			match=f"^{tmp_pathplus / 'JetBrains' / 'PyCharm2020.2' / 'options' / 'other.xml'}$",
-			):
+	with pytest.raises(FileNotFoundError, match=re_windowspath(f"^{options_dir / 'other.xml'}$", )):
 		get_docs_port()
 
 
@@ -69,17 +68,12 @@ def test_open_in_browser_missing_config(monkeypatch, tmp_pathplus):
 	monkeypatch.setattr(appdirs, "user_config_dir", lambda *args: str(tmp_pathplus / "JetBrains"))
 
 	(tmp_pathplus / "JetBrains" / "PyCharm2020.2").mkdir(parents=True)
+	options_dir = tmp_pathplus / "JetBrains" / "PyCharm2020.2" / "options"
 
-	with pytest.raises(
-			FileNotFoundError,
-			match=f"^{tmp_pathplus / 'JetBrains' / 'PyCharm2020.2' / 'options' / 'web-browsers.xml'}$",
-			):
+	with pytest.raises(FileNotFoundError, match=re_windowspath(f"^{options_dir / 'web-browsers.xml'}$", )):
 		open_in_browser("https://google.com")
 
-	(tmp_pathplus / "JetBrains" / "PyCharm2020.2" / "options").mkdir()
+	options_dir.mkdir()
 
-	with pytest.raises(
-			FileNotFoundError,
-			match=f"^{tmp_pathplus / 'JetBrains' / 'PyCharm2020.2' / 'options' / 'web-browsers.xml'}$",
-			):
+	with pytest.raises(FileNotFoundError, match=re_windowspath(f"^{options_dir / 'web-browsers.xml'}$", )):
 		open_in_browser("https://google.com")
