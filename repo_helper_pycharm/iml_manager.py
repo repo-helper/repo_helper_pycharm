@@ -31,6 +31,7 @@ import click
 import lxml  # type: ignore
 import lxml.etree  # type: ignore
 from consolekit.utils import coloured_diff
+from domdf_python_tools.paths import PathPlus
 from domdf_python_tools.stringlist import StringList
 from domdf_python_tools.typing import PathLike
 from lxml import objectify
@@ -63,7 +64,8 @@ class ImlManager:
 			raise FileNotFoundError("'.idea' directory not found. Perhaps this isn't a PyCharm project?")
 
 		try:
-			self.module_file = next((self.rh.target_repo / ".idea").glob("*.iml"))
+			# TODO: waiting on mypy updating typeshed
+			self.module_file: PathPlus = next((self.rh.target_repo / ".idea").glob("*.iml"))  # type: ignore
 		except StopIteration:
 			raise FileNotFoundError("No '.idea/*.iml' file found. Perhaps this isn't a PyCharm project?")
 
@@ -93,8 +95,7 @@ class ImlManager:
 		modified_xml.append(lxml.etree.tostring(self.root, pretty_print=True).decode("UTF-8"))
 		modified_xml.blankline(ensure_single=True)
 
-		# TODO: waiting on mypy updating typeshed
-		current_content = self.module_file.read_lines()  # type: ignore
+		current_content = self.module_file.read_lines()
 
 		changed = current_content != list(modified_xml)
 
@@ -114,8 +115,7 @@ class ImlManager:
 							)
 					)
 
-		# TODO: waiting on mypy updating typeshed
-		self.module_file.write_lines(modified_xml)  # type: ignore
+		self.module_file.write_lines(modified_xml)
 
 		return 1
 

@@ -30,7 +30,7 @@ def mocked_config(monkeypatch):
 		yield tmpdir
 
 
-def test_get_config_dir(monkeypatch, tmp_pathplus):
+def test_get_config_dir(monkeypatch, tmp_pathplus: PathPlus):
 	monkeypatch.setattr(appdirs, "user_config_dir", lambda *args: str(tmp_pathplus / "JetBrains"))
 
 	with pytest.raises(FileNotFoundError, match=re_windowspath(f"^{tmp_pathplus / 'JetBrains'}$")):
@@ -49,7 +49,7 @@ def test_get_docs_port(mocked_config):
 	assert get_docs_port() == 63333
 
 
-def test_get_docs_port_missing_config(monkeypatch, tmp_pathplus):
+def test_get_docs_port_missing_config(monkeypatch, tmp_pathplus: PathPlus):
 	monkeypatch.setattr(appdirs, "user_config_dir", lambda *args: str(tmp_pathplus / "JetBrains"))
 
 	(tmp_pathplus / "JetBrains" / "PyCharm2020.2").mkdir(parents=True)
@@ -64,7 +64,7 @@ def test_get_docs_port_missing_config(monkeypatch, tmp_pathplus):
 		get_docs_port()
 
 
-def test_open_in_browser_missing_config(monkeypatch, tmp_pathplus):
+def test_open_in_browser_missing_config(monkeypatch, tmp_pathplus: PathPlus):
 	monkeypatch.setattr(appdirs, "user_config_dir", lambda *args: str(tmp_pathplus / "JetBrains"))
 
 	(tmp_pathplus / "JetBrains" / "PyCharm2020.2").mkdir(parents=True)

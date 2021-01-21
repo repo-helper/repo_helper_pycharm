@@ -1,11 +1,12 @@
 # 3rd party
 import pytest
+from domdf_python_tools.paths import PathPlus
 
 pytest_plugins = ("coincidence", "repo_helper.testing")
 
 
 @pytest.fixture()
-def tmp_project(tmp_pathplus, example_config):
+def tmp_project(tmp_pathplus: PathPlus, example_config):
 	(tmp_pathplus / "repo_helper.yml").write_clean(example_config)
 
 
