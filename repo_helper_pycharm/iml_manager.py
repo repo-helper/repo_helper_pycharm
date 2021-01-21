@@ -26,6 +26,9 @@ Class to update PyCharm's ``*.iml`` configuration files.
 #  OR OTHER DEALINGS IN THE SOFTWARE.
 #
 
+# stdlib
+import os
+
 # 3rd party
 import click
 import lxml  # type: ignore
@@ -73,6 +76,7 @@ class ImlManager:
 		self.root = module_config.getroot()
 
 		self.excluded_dirs = set(self.excluded_dirs)
+		self.excluded_dirs.add(os.path.join(self.rh.templates.globals["docs_dir"], "build"))
 
 	def run(self, show_diff: bool = False) -> int:
 		"""
