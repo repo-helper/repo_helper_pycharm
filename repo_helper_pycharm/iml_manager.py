@@ -100,24 +100,24 @@ class ImlManager:
 
 		if not changed:
 			return 0
-		else:
-			if show_diff:
-				click.echo(
-						coloured_diff(
-								current_content,
-								list(modified_xml),
-								self.module_file.name,
-								self.module_file.name,
-								"(original)",
-								"(updated)",
-								lineterm='',
-								)
-						)
 
-			# TODO: waiting on mypy updating typeshed
-			self.module_file.write_lines(modified_xml)  # type: ignore
+		if show_diff:
+			click.echo(
+					coloured_diff(
+							current_content,
+							list(modified_xml),
+							self.module_file.name,
+							self.module_file.name,
+							"(original)",
+							"(updated)",
+							lineterm='',
+							)
+					)
 
-			return 1
+		# TODO: waiting on mypy updating typeshed
+		self.module_file.write_lines(modified_xml)  # type: ignore
+
+		return 1
 
 	def update_excludes(self) -> None:
 		"""
