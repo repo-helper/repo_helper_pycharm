@@ -34,7 +34,7 @@ import click
 import lxml  # type: ignore
 import lxml.etree  # type: ignore
 from consolekit.utils import coloured_diff
-from domdf_python_tools.paths import PathPlus
+from domdf_python_tools.paths import PathPlus, unwanted_dirs
 from domdf_python_tools.stringlist import StringList
 from domdf_python_tools.typing import PathLike
 from lxml import objectify
@@ -51,12 +51,9 @@ class ImlManager:
 	"""
 
 	excluded_dirs = {
-			".mypy_cache",
-			".pytest_cache",
+			*unwanted_dirs,
 			"build",
 			"dist",
-			"venv",
-			".tox",
 			"conda",
 			}
 
