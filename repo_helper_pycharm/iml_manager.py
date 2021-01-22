@@ -64,8 +64,7 @@ class ImlManager:
 			raise FileNotFoundError("'.idea' directory not found. Perhaps this isn't a PyCharm project?")
 
 		try:
-			# TODO: waiting on mypy updating typeshed
-			self.module_file: PathPlus = next((self.rh.target_repo / ".idea").glob("*.iml"))  # type: ignore
+			self.module_file: PathPlus = next((self.rh.target_repo / ".idea").glob("*.iml"))
 		except StopIteration:
 			raise FileNotFoundError("No '.idea/*.iml' file found. Perhaps this isn't a PyCharm project?")
 
