@@ -3,7 +3,7 @@ import re
 import tempfile
 
 # 3rd party
-import appdirs  # type: ignore
+import appdirs
 import pytest
 from domdf_python_tools.paths import PathPlus
 

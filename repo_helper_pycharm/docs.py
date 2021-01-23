@@ -34,7 +34,7 @@ import webbrowser
 from typing import Optional
 
 # 3rd party
-import appdirs  # type: ignore
+import appdirs
 from domdf_python_tools.iterative import natmax
 from domdf_python_tools.paths import PathPlus
 from lxml import objectify  # type: ignore
