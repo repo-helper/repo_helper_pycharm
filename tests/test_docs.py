@@ -5,9 +5,11 @@ import tempfile
 # 3rd party
 import appdirs
 import pytest
-from domdf_python_tools.paths import PathPlus
+from consolekit.testing import CliRunner
+from domdf_python_tools.paths import PathPlus, in_directory
 
 # this package
+from repo_helper_pycharm import docs
 from repo_helper_pycharm.docs import get_config_dir, get_docs_port, open_in_browser
 
 
@@ -77,3 +79,25 @@ def test_open_in_browser_missing_config(monkeypatch, tmp_pathplus: PathPlus):
 
 	with pytest.raises(FileNotFoundError, match=re_windowspath(f"^{options_dir / 'web-browsers.xml'}$", )):
 		open_in_browser("https://google.com")
+
+
+def test_has_no_docs(tmp_pathplus: PathPlus):
+	(tmp_pathplus / "repo_helper.yml").write_lines([
+			"modname: 'repo_helper_pycharm'",
+			"copyright_years: '2020'",
+			"author: 'Dominic Davis-Foster'",
+			"email: 'dominic@davis-foster.co.uk'",
+			"username: 'domdfcoding'",
+			"version: '0.2.1'",
+			"license: 'MIT'",
+			"short_desc: \"repo_helper extension to manage PyCharm's configuration.\"",
+			"enable_docs: False",
+			])
+
+	with in_directory(tmp_pathplus):
+		runner = CliRunner(mix_stderr=False)
+		result = runner.invoke(docs, color=False)
+
+	assert result.exit_code == 1
+	assert not result.stdout
+	assert result.stderr == "The current project has no documentation!\nAborted!\n"

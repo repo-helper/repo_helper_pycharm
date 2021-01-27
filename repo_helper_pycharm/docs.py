@@ -66,7 +66,7 @@ def get_config_dir() -> PathPlus:
 		raise FileNotFoundError(config_dir / "PyCharm[0-9]{4}.[0-9]") from None
 
 
-def open_in_browser(url: str) -> None:
+def open_in_browser(url: str) -> None:  # pragma: no cover
 	"""
 	Opens the URL in the browser configured in the PyCharm settings.
 

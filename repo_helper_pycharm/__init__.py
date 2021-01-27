@@ -120,7 +120,7 @@ def docs() -> None:
 
 	if not rh.templates.globals["enable_docs"]:
 		raise abort("The current project has no documentation!")
-	else:
+	else:  # pragma: no cover
 		url = reduce(
 				operator.truediv,
 				[
