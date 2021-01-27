@@ -59,6 +59,7 @@ class ImlManager:
 
 	def __init__(self, repo_dir: PathLike):
 		self.rh = RepoHelper(repo_dir)
+		self.rh.load_settings()
 
 		if not (self.rh.target_repo / ".idea").is_dir():  # pragma: no cover
 			raise FileNotFoundError("'.idea' directory not found. Perhaps this isn't a PyCharm project?")

@@ -116,6 +116,7 @@ def docs() -> None:
 	from repo_helper_pycharm.docs import get_docs_port, open_in_browser
 
 	rh = RepoHelper(PathPlus.cwd())
+	rh.load_settings()
 
 	if not rh.templates.globals["enable_docs"]:
 		raise abort("The current project has no documentation!")
