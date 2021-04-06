@@ -10,6 +10,7 @@ version: '0.2.1'
 license: 'MIT'
 short_desc: "repo_helper extension to manage PyCharm's configuration."
 
+use_whey: true
 enable_conda: False
 
 entry_points:
