@@ -50,9 +50,9 @@ def get_config_dir() -> PathPlus:
 	"""
 	Returns the path to the PyCharm configuration directory.
 
-	:raises: :exc:`FileNotFoundError` if the directory can't be found.
-
 	.. versionadded:: 0.2.0
+
+	:raises: :exc:`FileNotFoundError` if the directory can't be found.
 	"""
 
 	config_dir = PathPlus(appdirs.user_config_dir("JetBrains"))
@@ -70,9 +70,9 @@ def open_in_browser(url: str) -> None:  # pragma: no cover
 	"""
 	Opens the URL in the browser configured in the PyCharm settings.
 
-	:param url:
-
 	.. versionadded:: 0.2.0
+
+	:param url:
 	"""
 
 	config_dir = get_config_dir()

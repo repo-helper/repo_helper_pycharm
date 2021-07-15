@@ -29,7 +29,7 @@ configure
 docs
 ***********
 
-.. click:: repo_helper_pycharm:docs
+.. click:: repo_helper_pycharm:docs_command
 	:prog: repo-helper pycharm docs
 	:nested: none
 

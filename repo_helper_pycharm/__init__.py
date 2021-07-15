@@ -40,7 +40,7 @@ __license__: str = "MIT License"
 __version__: str = "0.3.0"
 __email__: str = "dominic@davis-foster.co.uk"
 
-__all__ = ["configure", "pycharm", "schema", "docs"]
+__all__ = ["configure", "pycharm", "schema", "docs_command"]
 
 
 @cli_group()
@@ -98,7 +98,7 @@ def configure(diff: bool = False) -> None:
 
 
 @pycharm_command()
-def docs() -> None:
+def docs_command() -> None:
 	"""
 	Open the documentation using PyCharm's built-in web server.
 	"""
@@ -133,3 +133,6 @@ def docs() -> None:
 				)
 
 		open_in_browser(url)
+
+
+docs_command.name = "docs"

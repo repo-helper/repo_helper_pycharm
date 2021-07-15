@@ -9,7 +9,7 @@ from consolekit.testing import CliRunner
 from domdf_python_tools.paths import PathPlus, in_directory
 
 # this package
-from repo_helper_pycharm import docs
+from repo_helper_pycharm import docs_command
 from repo_helper_pycharm.docs import get_config_dir, get_docs_port, open_in_browser
 
 
@@ -96,7 +96,7 @@ def test_has_no_docs(tmp_pathplus: PathPlus):
 
 	with in_directory(tmp_pathplus):
 		runner = CliRunner(mix_stderr=False)
-		result = runner.invoke(docs, color=False)
+		result = runner.invoke(docs_command, color=False)
 
 	assert result.exit_code == 1
 	assert not result.stdout

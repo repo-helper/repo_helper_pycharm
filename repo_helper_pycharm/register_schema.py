@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 #
-#  iml_manager.py
+#  register_schema.py
 """
 Register the schema mapping for ``repo_helper.yml`` with PyCharm.
 """

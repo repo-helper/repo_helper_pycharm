@@ -78,6 +78,7 @@ class ImlManager:
 
 	def run(self, show_diff: bool = False) -> int:
 		"""
+		Update the configuration in the file.
 
 		:param show_diff: Whether to show a diff if changes are made.
 		"""
@@ -89,6 +90,7 @@ class ImlManager:
 
 	def write_out(self, show_diff: bool = False) -> int:
 		"""
+		Write the modified output to file.
 
 		:param show_diff: Whether to show a diff if changes are made.
 		"""

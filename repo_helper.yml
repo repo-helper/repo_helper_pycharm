@@ -12,6 +12,9 @@ short_desc: "repo_helper extension to manage PyCharm's configuration."
 
 use_whey: true
 enable_conda: False
+sphinx_html_theme: furo
+preserve_custom_theme: true
+mypy_version: "0.910"
 
 entry_points:
  repo_helper.command:
@@ -22,6 +25,7 @@ python_versions:
  - 3.7
  - 3.8
  - 3.9
+ - 3.10-dev
 
 keywords:
  - pycharm
@@ -29,19 +33,21 @@ keywords:
 
 extra_sphinx_extensions:
  - sphinx_click
+ - sphinx_toolbox_experimental.html_section
+ - sphinx_toolbox_experimental.autosummary_widths
+ - sphinx_toolbox_experimental.needspace
 
 intersphinx_mapping:
  - "'click': ('https://click.palletsprojects.com/en/7.x/', None)"
-
-sphinx_html_theme: furo
-
-standalone_contrib_guide: true
-
-preserve_custom_theme: true
-
-mypy_version: "0.800"
 
 classifiers:
  - 'Development Status :: 4 - Beta'
  - 'Environment :: Console'
  - 'Intended Audience :: Developers'
+
+exclude_files:
+ - contributing
+
+sphinx_conf_epilogue:
+ - nitpicky = True
+ - autosummary_widths_builders = ["latex"]
