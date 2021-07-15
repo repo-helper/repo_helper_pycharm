@@ -3,11 +3,10 @@ from typing import Union
 
 # 3rd party
 import pytest
-from click.testing import CliRunner, Result
-from coincidence import check_file_output, check_file_regression
+from coincidence.regressions import AdvancedFileRegressionFixture
+from consolekit.testing import CliRunner, Result
 from domdf_python_tools.paths import PathPlus, in_directory
 from domdf_python_tools.stringlist import StringList
-from pytest_regressions.file_regression import FileRegressionFixture
 
 # this package
 from repo_helper_pycharm import configure
@@ -42,17 +41,18 @@ class BaseTest:
 	def check_output(
 			self,
 			tmp_pathplus: PathPlus,
-			file_regression: FileRegressionFixture,
+			advanced_file_regression: AdvancedFileRegressionFixture,
 			stdout: Union[str, StringList],
 			):
 
 		stdout = StringList(stdout)
 		stdout.blankline(ensure_single=True)
 
-		check_file_regression(stdout, file_regression, extension=".patch")
-		check_file_output(tmp_pathplus / ".idea" / "repo_helper_demo.iml", file_regression, extension=".xml")
+		advanced_file_regression.check(stdout, extension=".patch")
+		advanced_file_regression.check_file(tmp_pathplus / ".idea" / "repo_helper_demo.iml", extension=".xml")
 
-	def make_fake_iml(self, tmp_pathplus: PathPlus):
+	@staticmethod
+	def make_fake_iml(tmp_pathplus: PathPlus):
 		(tmp_pathplus / ".idea").maybe_make()
 		(tmp_pathplus / ".idea" / "repo_helper_demo.iml").write_clean(iml_contents)
 
@@ -67,7 +67,7 @@ class TestCommand(BaseTest):
 			self,
 			no_idea,
 			tmp_pathplus: PathPlus,
-			file_regression: FileRegressionFixture,
+			advanced_file_regression: AdvancedFileRegressionFixture,
 			tmp_project,
 			):
 
@@ -83,22 +83,22 @@ class TestCommand(BaseTest):
 	def test_iml_manager(
 			self,
 			tmp_pathplus: PathPlus,
-			file_regression: FileRegressionFixture,
+			advanced_file_regression: AdvancedFileRegressionFixture,
 			diff: bool,
+			cli_runner: CliRunner
 			):
 
 		self.make_fake_iml(tmp_pathplus)
 
 		with in_directory(tmp_pathplus):
-			runner = CliRunner()
-			result: Result = runner.invoke(
+			result: Result = cli_runner.invoke(
 					configure,
 					catch_exceptions=False,
 					args=["--diff"] if diff else [],
 					)
 			assert result.exit_code == 1
 
-		self.check_output(tmp_pathplus, file_regression, result.stdout)
+		self.check_output(tmp_pathplus, advanced_file_regression, result.stdout)
 
 
 class TestClass(BaseTest):
@@ -114,7 +114,7 @@ class TestClass(BaseTest):
 	def test_iml_manager(
 			self,
 			tmp_pathplus: PathPlus,
-			file_regression: FileRegressionFixture,
+			advanced_file_regression: AdvancedFileRegressionFixture,
 			capsys,
 			diff,
 			):
@@ -122,4 +122,4 @@ class TestClass(BaseTest):
 
 		assert ImlManager(tmp_pathplus).run(diff) == 1
 
-		self.check_output(tmp_pathplus, file_regression, capsys.readouterr().out)
+		self.check_output(tmp_pathplus, advanced_file_regression, capsys.readouterr().out)

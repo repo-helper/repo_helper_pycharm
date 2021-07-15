@@ -5,7 +5,7 @@ from abc import abstractmethod
 
 # 3rd party
 import pytest
-from click.testing import CliRunner, Result
+from click.testing import CliRunner, Result  # type: ignore
 from coincidence import check_file_regression
 from domdf_python_tools.paths import PathPlus, in_directory
 from pytest_regressions.file_regression import FileRegressionFixture

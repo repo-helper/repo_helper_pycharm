@@ -2,7 +2,7 @@
 import pytest
 from domdf_python_tools.paths import PathPlus
 
-pytest_plugins = ("coincidence", "repo_helper.testing")
+pytest_plugins = ("coincidence", "repo_helper.testing", "consolekit.testing")
 
 
 @pytest.fixture()

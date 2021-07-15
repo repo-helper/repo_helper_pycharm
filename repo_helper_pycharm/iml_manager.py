@@ -30,7 +30,7 @@ Class to update PyCharm's ``*.iml`` configuration files.
 import posixpath
 
 # 3rd party
-import click
+import click  # type: ignore
 import lxml  # type: ignore
 import lxml.etree  # type: ignore
 from consolekit.utils import coloured_diff
