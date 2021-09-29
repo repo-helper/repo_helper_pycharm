@@ -47,7 +47,8 @@ def test_get_config_dir(monkeypatch, tmp_pathplus: PathPlus):
 		get_config_dir()
 
 
-def test_get_docs_port(mocked_config):
+@pytest.mark.usefixtures("mocked_config")
+def test_get_docs_port():
 	assert get_docs_port() == 63333
 
 

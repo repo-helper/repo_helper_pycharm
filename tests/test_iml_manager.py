@@ -63,13 +63,7 @@ class BaseTest:
 class TestCommand(BaseTest):
 
 	@pytest.mark.usefixtures("tmp_project")
-	def test_iml_manager_not_project(
-			self,
-			no_idea,
-			tmp_pathplus: PathPlus,
-			advanced_file_regression: AdvancedFileRegressionFixture,
-			tmp_project,
-			):
+	def test_iml_manager_not_project(self, no_idea, tmp_pathplus: PathPlus):
 
 		with in_directory(tmp_pathplus):
 			runner = CliRunner(mix_stderr=False)

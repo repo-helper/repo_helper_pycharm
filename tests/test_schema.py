@@ -66,9 +66,7 @@ class BaseTest:
 class TestCommand(BaseTest):
 
 	@pytest.mark.usefixtures("tmp_project")
-	def test_pycharm_schema_not_project(
-			self, no_idea, tmp_pathplus, file_regression: FileRegressionFixture, tmp_project
-			):
+	def test_pycharm_schema_not_project(self, no_idea, tmp_pathplus):
 		with in_directory(tmp_pathplus):
 			runner = CliRunner(mix_stderr=False)
 			result: Result = runner.invoke(schema, catch_exceptions=False)
