@@ -3,7 +3,7 @@ import re
 import tempfile
 
 # 3rd party
-import appdirs
+import platformdirs
 import pytest
 from consolekit.testing import CliRunner
 from domdf_python_tools.paths import PathPlus, in_directory
@@ -20,7 +20,7 @@ def re_windowspath(string: str) -> str:
 @pytest.fixture()
 def mocked_config(monkeypatch):
 	with tempfile.TemporaryDirectory() as tmpdir:
-		monkeypatch.setattr(appdirs, "user_config_dir", lambda *args: PathPlus(tmpdir))
+		monkeypatch.setattr(platformdirs, "user_config_dir", lambda *args: PathPlus(tmpdir))
 
 		example_config = PathPlus(__file__).parent / "example_config"
 		tmp_configdir = PathPlus(tmpdir) / "PyCharm2020.2" / "options"
@@ -33,7 +33,7 @@ def mocked_config(monkeypatch):
 
 
 def test_get_config_dir(monkeypatch, tmp_pathplus: PathPlus):
-	monkeypatch.setattr(appdirs, "user_config_dir", lambda *args: str(tmp_pathplus / "JetBrains"))
+	monkeypatch.setattr(platformdirs, "user_config_dir", lambda *args: str(tmp_pathplus / "JetBrains"))
 
 	with pytest.raises(FileNotFoundError, match=re_windowspath(f"^{tmp_pathplus / 'JetBrains'}$")):
 		get_config_dir()
@@ -53,7 +53,7 @@ def test_get_docs_port():
 
 
 def test_get_docs_port_missing_config(monkeypatch, tmp_pathplus: PathPlus):
-	monkeypatch.setattr(appdirs, "user_config_dir", lambda *args: str(tmp_pathplus / "JetBrains"))
+	monkeypatch.setattr(platformdirs, "user_config_dir", lambda *args: str(tmp_pathplus / "JetBrains"))
 
 	(tmp_pathplus / "JetBrains" / "PyCharm2020.2").mkdir(parents=True)
 	options_dir = tmp_pathplus / "JetBrains" / "PyCharm2020.2" / "options"
@@ -68,7 +68,7 @@ def test_get_docs_port_missing_config(monkeypatch, tmp_pathplus: PathPlus):
 
 
 def test_open_in_browser_missing_config(monkeypatch, tmp_pathplus: PathPlus):
-	monkeypatch.setattr(appdirs, "user_config_dir", lambda *args: str(tmp_pathplus / "JetBrains"))
+	monkeypatch.setattr(platformdirs, "user_config_dir", lambda *args: str(tmp_pathplus / "JetBrains"))
 
 	(tmp_pathplus / "JetBrains" / "PyCharm2020.2").mkdir(parents=True)
 	options_dir = tmp_pathplus / "JetBrains" / "PyCharm2020.2" / "options"

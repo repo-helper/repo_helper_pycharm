@@ -34,7 +34,7 @@ import webbrowser
 from typing import Optional
 
 # 3rd party
-import appdirs
+import platformdirs
 from domdf_python_tools.iterative import natmax
 from domdf_python_tools.paths import PathPlus
 from lxml import objectify  # type: ignore[import]
@@ -55,7 +55,7 @@ def get_config_dir() -> PathPlus:
 	:raises: :exc:`FileNotFoundError` if the directory can't be found.
 	"""
 
-	config_dir = PathPlus(appdirs.user_config_dir("JetBrains"))
+	config_dir = PathPlus(platformdirs.user_config_dir("JetBrains"))
 
 	if not config_dir.is_dir():
 		raise FileNotFoundError(config_dir)
