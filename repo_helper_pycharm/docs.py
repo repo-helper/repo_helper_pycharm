@@ -37,7 +37,7 @@ from typing import Optional
 import appdirs
 from domdf_python_tools.iterative import natmax
 from domdf_python_tools.paths import PathPlus
-from lxml import objectify  # type: ignore
+from lxml import objectify  # type: ignore[import]
 
 __all__ = [
 		"get_config_dir",

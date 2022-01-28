@@ -34,7 +34,7 @@ import repo_helper
 from domdf_python_tools.compat import importlib_resources
 from domdf_python_tools.typing import PathLike
 from domdf_python_tools.words import TAB
-from lxml import etree, objectify  # type: ignore
+from lxml import etree, objectify  # type: ignore[import]
 from repo_helper.configuration import dump_schema
 from repo_helper.core import RepoHelper
 
