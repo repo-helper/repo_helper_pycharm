@@ -30,7 +30,7 @@ repo_helper extension to manage PyCharm's configuration.
 from functools import partial, reduce
 
 # 3rd party
-import click  # type: ignore
+import click  # type: ignore[import]
 from consolekit import CONTEXT_SETTINGS
 from repo_helper.cli import cli_group
 
