@@ -1,6 +1,7 @@
 # stdlib
 import re
 import tempfile
+from typing import Iterator
 
 # 3rd party
 import platformdirs
@@ -18,7 +19,7 @@ def re_windowspath(string: str) -> str:
 
 
 @pytest.fixture()
-def mocked_config(monkeypatch):
+def mocked_config(monkeypatch) -> Iterator:
 	with tempfile.TemporaryDirectory() as tmpdir:
 		monkeypatch.setattr(platformdirs, "user_config_dir", lambda *args: PathPlus(tmpdir))
 
@@ -32,7 +33,7 @@ def mocked_config(monkeypatch):
 		yield tmpdir
 
 
-def test_get_config_dir(monkeypatch, tmp_pathplus: PathPlus):
+def test_get_config_dir(monkeypatch, tmp_pathplus: PathPlus) -> None:
 	monkeypatch.setattr(platformdirs, "user_config_dir", lambda *args: str(tmp_pathplus / "JetBrains"))
 
 	with pytest.raises(FileNotFoundError, match=re_windowspath(f"^{tmp_pathplus / 'JetBrains'}$")):
@@ -48,11 +49,11 @@ def test_get_config_dir(monkeypatch, tmp_pathplus: PathPlus):
 
 
 @pytest.mark.usefixtures("mocked_config")
-def test_get_docs_port():
+def test_get_docs_port() -> None:
 	assert get_docs_port() == 63333
 
 
-def test_get_docs_port_missing_config(monkeypatch, tmp_pathplus: PathPlus):
+def test_get_docs_port_missing_config(monkeypatch, tmp_pathplus: PathPlus) -> None:
 	monkeypatch.setattr(platformdirs, "user_config_dir", lambda *args: str(tmp_pathplus / "JetBrains"))
 
 	(tmp_pathplus / "JetBrains" / "PyCharm2020.2").mkdir(parents=True)
@@ -67,7 +68,7 @@ def test_get_docs_port_missing_config(monkeypatch, tmp_pathplus: PathPlus):
 		get_docs_port()
 
 
-def test_open_in_browser_missing_config(monkeypatch, tmp_pathplus: PathPlus):
+def test_open_in_browser_missing_config(monkeypatch, tmp_pathplus: PathPlus) -> None:
 	monkeypatch.setattr(platformdirs, "user_config_dir", lambda *args: str(tmp_pathplus / "JetBrains"))
 
 	(tmp_pathplus / "JetBrains" / "PyCharm2020.2").mkdir(parents=True)
@@ -82,7 +83,7 @@ def test_open_in_browser_missing_config(monkeypatch, tmp_pathplus: PathPlus):
 		open_in_browser("https://google.com")
 
 
-def test_has_no_docs(tmp_pathplus: PathPlus):
+def test_has_no_docs(tmp_pathplus: PathPlus) -> None:
 	(tmp_pathplus / "repo_helper.yml").write_lines([
 			"modname: 'repo_helper_pycharm'",
 			"copyright_years: '2020'",

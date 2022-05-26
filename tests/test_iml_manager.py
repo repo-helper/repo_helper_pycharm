@@ -43,7 +43,7 @@ class BaseTest:
 			tmp_pathplus: PathPlus,
 			advanced_file_regression: AdvancedFileRegressionFixture,
 			stdout: Union[str, StringList],
-			):
+			) -> None:
 
 		stdout = StringList(stdout)
 		stdout.blankline(ensure_single=True)
@@ -52,7 +52,7 @@ class BaseTest:
 		advanced_file_regression.check_file(tmp_pathplus / ".idea" / "repo_helper_demo.iml", extension=".xml")
 
 	@staticmethod
-	def make_fake_iml(tmp_pathplus: PathPlus):
+	def make_fake_iml(tmp_pathplus: PathPlus) -> None:
 		(tmp_pathplus / ".idea").maybe_make()
 		(tmp_pathplus / ".idea" / "repo_helper_demo.iml").write_clean(iml_contents)
 
@@ -63,7 +63,7 @@ class BaseTest:
 class TestCommand(BaseTest):
 
 	@pytest.mark.usefixtures("tmp_project")
-	def test_iml_manager_not_project(self, no_idea, tmp_pathplus: PathPlus):
+	def test_iml_manager_not_project(self, no_idea: str, tmp_pathplus: PathPlus) -> None:
 
 		with in_directory(tmp_pathplus):
 			runner = CliRunner(mix_stderr=False)
@@ -80,7 +80,7 @@ class TestCommand(BaseTest):
 			advanced_file_regression: AdvancedFileRegressionFixture,
 			diff: bool,
 			cli_runner: CliRunner
-			):
+			) -> None:
 
 		self.make_fake_iml(tmp_pathplus)
 
@@ -98,7 +98,7 @@ class TestCommand(BaseTest):
 class TestClass(BaseTest):
 
 	@pytest.mark.usefixtures("tmp_project")
-	def test_iml_manager_not_project(self, tmp_pathplus: PathPlus, no_idea):
+	def test_iml_manager_not_project(self, tmp_pathplus: PathPlus, no_idea) -> None:
 
 		with pytest.raises(FileNotFoundError, match=no_idea):
 			ImlManager(tmp_pathplus)
@@ -110,8 +110,8 @@ class TestClass(BaseTest):
 			tmp_pathplus: PathPlus,
 			advanced_file_regression: AdvancedFileRegressionFixture,
 			capsys,
-			diff,
-			):
+			diff: bool,
+			) -> None:
 		self.make_fake_iml(tmp_pathplus)
 
 		assert ImlManager(tmp_pathplus).run(diff) == 1
