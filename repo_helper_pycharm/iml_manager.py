@@ -40,7 +40,7 @@ from domdf_python_tools.typing import PathLike
 from lxml import objectify
 from repo_helper.core import RepoHelper
 
-__all__ = ["ImlManager"]
+__all__ = ("ImlManager", )
 
 
 class ImlManager:
@@ -129,6 +129,7 @@ class ImlManager:
 		"""
 
 		file_module_dir = "file://$MODULE_DIR$/"
+		mypy_cache_dir = f"{file_module_dir}.mypy_cache"
 
 		for component in self.root.findall("component"):
 			if component.attrib["name"] != "NewModuleRootManager":
@@ -140,7 +141,7 @@ class ImlManager:
 				self.excluded_dirs.add(
 						exclude_node.attrib.get(
 								"url",
-								f"{file_module_dir}.mypy_cache",
+								mypy_cache_dir,
 								).split(file_module_dir)[-1],
 						)
 				component.content.remove(exclude_node)
@@ -148,7 +149,7 @@ class ImlManager:
 			# print(excluded_dirs)
 
 			for directory in sorted(self.excluded_dirs):
-				node = lxml.objectify.StringElement()
+				node = lxml.objectify.StringElement()  # pylint: disable=loop-invariant-statement
 				node.tag = "excludeFolder"
 				node.attrib["url"] = file_module_dir + directory
 				component.content.append(node)

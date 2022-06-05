@@ -38,7 +38,7 @@ from lxml import etree, objectify  # type: ignore[import]
 from repo_helper.configuration import dump_schema
 from repo_helper.core import RepoHelper
 
-__all__ = ["register_schema"]
+__all__ = ("register_schema", )
 
 
 def register_schema(repo_dir: PathLike) -> None:

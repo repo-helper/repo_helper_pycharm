@@ -40,7 +40,7 @@ __license__: str = "MIT License"
 __version__: str = "0.3.0"
 __email__: str = "dominic@davis-foster.co.uk"
 
-__all__ = ["configure", "pycharm", "schema", "docs_command"]
+__all__ = ("configure", "pycharm", "schema", "docs_command")
 
 
 @cli_group()

@@ -98,7 +98,7 @@ class TestCommand(BaseTest):
 class TestClass(BaseTest):
 
 	@pytest.mark.usefixtures("tmp_project")
-	def test_iml_manager_not_project(self, tmp_pathplus: PathPlus, no_idea) -> None:
+	def test_iml_manager_not_project(self, tmp_pathplus: PathPlus, no_idea: str) -> None:
 
 		with pytest.raises(FileNotFoundError, match=no_idea):
 			ImlManager(tmp_pathplus)

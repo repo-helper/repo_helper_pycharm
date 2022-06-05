@@ -78,7 +78,7 @@ class BaseTest:
 		self.run_test(tmp_pathplus, advanced_file_regression, capsys)
 
 	@abstractmethod
-	def run_test(
+	def run_test(  # noqa: MAN001
 			self,
 			tmp_pathplus: PathPlus,
 			advanced_file_regression: AdvancedFileRegressionFixture,
@@ -90,7 +90,7 @@ class BaseTest:
 class TestCommand(BaseTest):
 
 	@pytest.mark.usefixtures("tmp_project")
-	def test_pycharm_schema_not_project(self, no_idea: str, tmp_pathplus) -> None:
+	def test_pycharm_schema_not_project(self, no_idea: str, tmp_pathplus: PathPlus) -> None:
 		with in_directory(tmp_pathplus):
 			runner = CliRunner(mix_stderr=False)
 			result: Result = runner.invoke(schema, catch_exceptions=False)
@@ -98,7 +98,7 @@ class TestCommand(BaseTest):
 			assert result.stderr == f"{no_idea}\nAborted!\n"
 			assert not result.stdout
 
-	def run_test(
+	def run_test(  # noqa: MAN001
 			self,
 			tmp_pathplus: PathPlus,
 			advanced_file_regression: AdvancedFileRegressionFixture,
@@ -117,11 +117,11 @@ class TestCommand(BaseTest):
 class TestFunction(BaseTest):
 
 	@pytest.mark.usefixtures("tmp_project")
-	def test_pycharm_schema_not_project(self, tmp_pathplus, no_idea):
+	def test_pycharm_schema_not_project(self, tmp_pathplus: PathPlus, no_idea: str):
 		with pytest.raises(FileNotFoundError, match=no_idea):
 			register_schema(tmp_pathplus)
 
-	def run_test(
+	def run_test(  # noqa: MAN001
 			self,
 			tmp_pathplus: PathPlus,
 			advanced_file_regression: AdvancedFileRegressionFixture,

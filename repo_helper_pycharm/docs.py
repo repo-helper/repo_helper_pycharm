@@ -39,11 +39,11 @@ from domdf_python_tools.iterative import natmax
 from domdf_python_tools.paths import PathPlus
 from lxml import objectify  # type: ignore[import]
 
-__all__ = [
+__all__ = (
 		"get_config_dir",
 		"open_in_browser",
 		"get_docs_port",
-		]
+		)
 
 
 def get_config_dir() -> PathPlus:
