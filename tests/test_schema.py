@@ -79,11 +79,11 @@ class BaseTest:
 
 	@abstractmethod
 	def run_test(  # noqa: MAN001
-			self,
-			tmp_pathplus: PathPlus,
-			advanced_file_regression: AdvancedFileRegressionFixture,
-			capsys,
-			) -> None:
+		self,
+		tmp_pathplus: PathPlus,
+		advanced_file_regression: AdvancedFileRegressionFixture,
+		capsys,
+		) -> None:
 		raise NotImplementedError
 
 
@@ -99,11 +99,11 @@ class TestCommand(BaseTest):
 			assert not result.stdout
 
 	def run_test(  # noqa: MAN001
-			self,
-			tmp_pathplus: PathPlus,
-			advanced_file_regression: AdvancedFileRegressionFixture,
-			capsys,
-			) -> None:
+		self,
+		tmp_pathplus: PathPlus,
+		advanced_file_regression: AdvancedFileRegressionFixture,
+		capsys,
+		) -> None:
 		(tmp_pathplus / ".idea").maybe_make()
 
 		with in_directory(tmp_pathplus):
@@ -122,11 +122,11 @@ class TestFunction(BaseTest):
 			register_schema(tmp_pathplus)
 
 	def run_test(  # noqa: MAN001
-			self,
-			tmp_pathplus: PathPlus,
-			advanced_file_regression: AdvancedFileRegressionFixture,
-			capsys,
-			) -> None:
+		self,
+		tmp_pathplus: PathPlus,
+		advanced_file_regression: AdvancedFileRegressionFixture,
+		capsys,
+		) -> None:
 		(tmp_pathplus / ".idea").maybe_make()
 		register_schema(tmp_pathplus)
 		self.check_output(tmp_pathplus, advanced_file_regression, capsys.readouterr().out)
