@@ -4,7 +4,7 @@ build-backend = "whey"
 
 [project]
 name = "repo_helper_pycharm"
-version = "0.3.0"
+version = "0.3.1"
 description = "repo_helper extension to manage PyCharm's configuration."
 readme = "README.rst"
 keywords = [ "pycharm", "repo-helper",]
