@@ -31,7 +31,7 @@ repo_helper_pycharm
 		  - |license| |language| |requires|
 
 	.. |docs| rtfd-shield::
-		:project: repo_helper_pycharm
+		:project: repo-helper-pycharm
 		:alt: Documentation Build Status
 
 	.. |docs_check| actions-shield::
