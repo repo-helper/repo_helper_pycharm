@@ -31,7 +31,7 @@ repo_helper_pycharm
 		  - |license| |language| |requires|
 
 	.. |docs| rtfd-shield::
-		:project: repo_helper_pycharm
+		:project: repo-helper-pycharm
 		:alt: Documentation Build Status
 
 	.. |docs_check| actions-shield::
@@ -104,7 +104,7 @@ repo_helper_pycharm
 		:last-commit:
 		:alt: GitHub last commit
 
-	.. |maintained| maintained-shield:: 2022
+	.. |maintained| maintained-shield:: 2023
 		:alt: Maintenance
 
 	.. |pypi-downloads| pypi-shield::
