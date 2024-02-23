@@ -56,5 +56,5 @@ known_third_party = [
     "typing_extensions",
     "virtualenv",
 ]
-known_first_party = "repo_helper_pycharm"
+known_first_party = [ "repo_helper_pycharm",]
 line_length = 115
