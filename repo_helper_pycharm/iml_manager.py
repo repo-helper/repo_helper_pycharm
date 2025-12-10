@@ -30,9 +30,9 @@ Class to update PyCharm's ``*.iml`` configuration files.
 import posixpath
 
 # 3rd party
-import click  # type: ignore[import]
-import lxml  # type: ignore[import]
-import lxml.etree  # type: ignore[import]
+import click  # type: ignore[import-untyped]
+import lxml  # type: ignore[import-untyped]
+import lxml.etree  # type: ignore[import-untyped]
 from consolekit.utils import coloured_diff
 from domdf_python_tools.paths import PathPlus, unwanted_dirs
 from domdf_python_tools.stringlist import StringList
