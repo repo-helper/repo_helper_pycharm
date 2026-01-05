@@ -79,7 +79,7 @@ class TestCommand(BaseTest):
 			tmp_pathplus: PathPlus,
 			advanced_file_regression: AdvancedFileRegressionFixture,
 			diff: bool,
-			cli_runner: CliRunner
+			cli_runner: CliRunner,
 			) -> None:
 
 		self.make_fake_iml(tmp_pathplus)

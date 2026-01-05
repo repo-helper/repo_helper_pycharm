@@ -64,7 +64,10 @@ def test_get_docs_port_missing_config(monkeypatch, tmp_pathplus: PathPlus) -> No
 
 	options_dir.mkdir()
 
-	with pytest.raises(FileNotFoundError, match=re_windowspath(f"^{options_dir / 'other.xml'}$", )):
+	with pytest.raises(
+			FileNotFoundError,
+			match=re_windowspath(f"^{options_dir / 'other.xml'}$"),
+			):
 		get_docs_port()
 
 
@@ -74,12 +77,18 @@ def test_open_in_browser_missing_config(monkeypatch, tmp_pathplus: PathPlus) -> 
 	(tmp_pathplus / "JetBrains" / "PyCharm2020.2").mkdir(parents=True)
 	options_dir = tmp_pathplus / "JetBrains" / "PyCharm2020.2" / "options"
 
-	with pytest.raises(FileNotFoundError, match=re_windowspath(f"^{options_dir / 'web-browsers.xml'}$", )):
+	with pytest.raises(
+			FileNotFoundError,
+			match=re_windowspath(f"^{options_dir / 'web-browsers.xml'}$"),
+			):
 		open_in_browser("https://google.com")
 
 	options_dir.mkdir()
 
-	with pytest.raises(FileNotFoundError, match=re_windowspath(f"^{options_dir / 'web-browsers.xml'}$", )):
+	with pytest.raises(
+			FileNotFoundError,
+			match=re_windowspath(f"^{options_dir / 'web-browsers.xml'}$"),
+			):
 		open_in_browser("https://google.com")
 
 
